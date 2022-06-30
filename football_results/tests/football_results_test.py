@@ -17,6 +17,8 @@ class FootballResultsTest(unittest.TestCase):
             "away_score": 1
         }
 
+        self.final_scores = [self.match_1, self.second_match, self.match_3]
+
     def test_get_result_0_1_return_away_win(self):
         self.assertEqual("Away win", get_result(self.match_1))
 
@@ -25,6 +27,12 @@ class FootballResultsTest(unittest.TestCase):
 
     def test_get_result_1_1_return_draw(self):
         self.assertEqual("Draw", get_result(self.match_3))
+
+    def test_get_results_print_list_of_results(self):
+        get_result(self.match_1)
+        get_result(self.second_match)
+        get_result(self.match_3)
+        self.assertEqual(["Away win", "Home win", "Draw"], get_results(self.final_scores))
     # Test we get the right result string for a final score dictionary representing -
 
         # Home win
